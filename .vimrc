@@ -15,9 +15,10 @@ set undofile
 set incsearch
 set colorcolumn=80
 set laststatus=2
+set t_Co=256
+set background=dark
 
 highlight ColorColumn ctermbg=0 guibg=lightgrey
-colorscheme gruvbox
 
 call plug#begin('~/.vim/plugged')
     Plug 'morhetz/gruvbox'
@@ -27,3 +28,5 @@ call plug#begin('~/.vim/plugged')
     Plug 'preservim/nerdtree'
     Plug 'leafgarland/typescript-vim'
 call plug#end()
+
+colorscheme gruvbox
