@@ -34,6 +34,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'leafgarland/typescript-vim'
     Plug 'neoclide/coc.nvim', {'branch': 'release'} 
     Plug 'szw/vim-maximizer'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
 call plug#end()
 
 colorscheme gruvbox
@@ -59,9 +61,9 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 
 "NERDTree
-autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-map <C-n> :NERDTreeToggle<CR>
+map <C-e> :NERDTreeToggle<CR>
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -93,6 +95,10 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-map n :bn<cr>
-map p :bp<cr>
-map d :bd<cr>
+map <C-n> :bn<cr>
+map <C-p> :bp<cr>
+map <C-d> :bd<cr>
+
+" FZF
+" [Buffers] Jump to the existing window if possible
+let g:fzf_layout = { 'down':  '40%'}
